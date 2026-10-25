@@ -4,7 +4,7 @@
 
 Last updated: 2026-10-25
 
-Chroma Client (formerly MineLock) is an independent, non-commercial hobby project maintained by [@plisanko](https://github.com/plisanko) in Croatia. This page covers the Windows launcher.
+Chroma Client is an independent, non-commercial hobby project maintained by [@plisanko](https://github.com/plisanko) in Croatia. This page covers the Windows launcher.
 
 ## Project contact
 

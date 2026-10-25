@@ -6,9 +6,9 @@ Last updated: 2026-10-25
 
 ## Supported versions
 
-Security support is provided on a best-effort basis for the latest public Chroma Client (formerly MineLock) beta only. The current version is 0.9.0-beta.2. Older builds, private development builds, and files from unofficial sources are not promised security updates.
+Security support is provided on a best-effort basis for the latest public Chroma Client release only. The current version is 0.9.0-beta.2. Earlier builds, private development builds, and files from unofficial sources are not promised security updates.
 
-No public beta executable is currently offered from this documentation repository. Current beta executables are not Authenticode-signed. Chroma Client has no automatic updater; updates are installed manually.
+Chroma Client has no automatic updater; updates are installed manually from the [Releases page](https://github.com/plisanko/Chroma/releases).
 
 ## Reporting a vulnerability
 
@@ -19,7 +19,7 @@ Report a suspected Chroma Client vulnerability privately by email:
 
 Include, where possible:
 
-- The Chroma Client version, whether it is the installer, portable, or unpacked build, and whether the data folder came from an older MineLock version.
+- The Chroma Client version, whether it is the installer, portable, or unpacked build, and whether the data folder came from an earlier version.
 - Windows version and relevant environment details.
 - Clear reproduction steps and whether the issue reproduces consistently.
 - Expected behavior, actual behavior, and potential security impact.
@@ -33,7 +33,7 @@ Do not open a public GitHub issue containing an unpatched vulnerability, exploit
 
 Reports are reviewed on a best-effort basis. The maintainer may ask for clarification, attempt reproduction, prepare a fix, or determine that the issue belongs to Microsoft, Minecraft, a loader, a mod, Electron, or another provider.
 
-Chroma Client does not promise a response or resolution time. There is currently no bug bounty, paid reward, service-level agreement, or promised PGP reporting channel. Please allow a reasonable opportunity to investigate before public disclosure, but this request does not override applicable law.
+Chroma Client does not promise a response or resolution time. Chroma Client does not offer a bug bounty, paid reward, service-level agreement, or PGP reporting channel. Please allow a reasonable opportunity to investigate before public disclosure, but this request does not override applicable law.
 
 Account compromise, suspicious Microsoft sign-in activity, purchases, billing, and entitlement issues should also be reported directly to Microsoft or Minecraft Support. Chroma Client cannot recover or secure provider accounts.
 
@@ -54,16 +54,7 @@ These controls reduce certain risks but do not guarantee that Chroma Client, the
 
 ## Download authenticity
 
-Current beta executables are not Authenticode-signed and may trigger Microsoft Defender SmartScreen. This is a disclosure, not an instruction to ignore a warning. Users should stop if the file source or integrity cannot be verified. Future builds may be signed or unsigned, and each release should be checked separately.
-
-If a public build is published:
-
-1. Obtain it only from the canonical [Chroma Client Releases page](https://github.com/plisanko/minelock/releases).
-2. Read that release's stated Authenticode signing status.
-3. Calculate the downloaded file's SHA-256 hash with a trusted local tool.
-4. Compare the complete hash with the SHA-256 value published on the same release page before running the file.
-
-A matching hash checks the file against the value published on the release page. It does not by itself prove that a file is safe or that the user's device is uncompromised.
+Builds are currently not Authenticode-signed, so Microsoft Defender SmartScreen may show a warning. Download builds only from the official [Chroma Client Releases page](https://github.com/plisanko/Chroma/releases), and do not run a file whose source cannot be verified.
 
 ## User security guidance
 
@@ -71,7 +62,7 @@ A matching hash checks the file against the value published on the release page.
 - Enter Microsoft credentials only in the genuine Windows account dialog opened by a trusted sign-in flow.
 - Review mods and other third-party files before installation and obtain them from sources the user trusts.
 - Keep Windows, Chroma Client, Java, Minecraft, loaders, and relevant dependencies updated.
-- Back up valuable worlds and instances before beta updates or major mod changes. Deleting an instance in Chroma Client is permanent.
+- Back up valuable worlds and instances before updates or major mod changes. Deleting an instance in Chroma Client is permanent.
 - Use [Microsoft Support](https://support.microsoft.com/contactus) or [Minecraft Help](https://help.minecraft.net/hc/en-us) for provider account or billing problems.
 
 For non-security questions, see [Contact](CONTACT.md). For local data handling, see the [Privacy Policy](PRIVACY.md).

@@ -4,7 +4,7 @@
 
 A free Windows desktop launcher for managing Minecraft: Java Edition instances.
 
-Chroma Client (formerly MineLock) is an independent, non-commercial hobby project maintained by [@plisanko](https://github.com/plisanko) in Croatia. Current version: `0.9.0-beta.2`. It is in beta and is intended for public distribution. Last updated: 2026-10-25.
+Chroma Client is an independent, non-commercial hobby project maintained by [@plisanko](https://github.com/plisanko) in Croatia. Current version: `0.9.0-beta.2`. Last updated: 2026-10-25.
 
 This documentation covers the launcher only.
 
@@ -12,7 +12,7 @@ This documentation covers the launcher only.
 
 Chroma Client creates isolated Minecraft: Java Edition instances and helps users install, manage, and launch them. It obtains official Mojang version metadata, game files, assets, and libraries as needed. Chroma Client does not bundle or redistribute paid Minecraft files.
 
-Signing in with a legitimate Microsoft account that has a valid Minecraft: Java Edition entitlement is required for online play and Microsoft/Minecraft account features. The launcher can also create local offline profiles that need no Microsoft sign-in and do not verify ownership; they are not an authentication, licensing, or ownership bypass for any online service.
+Signing in with a legitimate Microsoft account that has a valid Minecraft: Java Edition entitlement is required for online play and Microsoft/Minecraft account features. Sign-in uses the Windows Account Manager, so the familiar Windows account dialog appears. The launcher can also create local offline profiles that need no Microsoft sign-in and do not verify ownership; they are not an authentication, licensing, or ownership bypass for any online service.
 
 Minecraft is a trademark of Mojang and Microsoft. Chroma Client is not affiliated with them.
 
@@ -26,14 +26,6 @@ Minecraft is a trademark of Mojang and Microsoft. Chroma Client is not affiliate
 - Minecraft: Java Edition launch and game-generated log access.
 
 Loader compatibility describes technical support only. It does not imply approval, sponsorship, or endorsement by Fabric, Quilt, Forge, NeoForge, Modrinth, or their contributors.
-
-## Current application review status
-
-Chroma Client uses a Microsoft Entra public Client ID. Approval of that Client ID by Minecraft Services is currently pending.
-
-Windows account sign-in and the Minecraft-targeted Xbox Live/XSTS exchange are working. The final Minecraft `login_with_xbox` request currently returns `HTTP 403 Invalid app registration`, so Microsoft account login cannot complete until the app registration is accepted for Minecraft Services. Offline profiles remain available meanwhile.
-
-Submitting this repository or a review request does not mean that Chroma Client has been approved. No Client ID is published in this documentation.
 
 ## Authentication and entitlement flow
 
@@ -49,18 +41,16 @@ See [Privacy](PRIVACY.md) for local token-cache behavior and third-party data pr
 ## Data and security summary
 
 - Chroma Client has no developer telemetry, analytics, crash reporting, advertising, in-app purchases, automatic updater, or remote Chroma Client backend.
-- Launcher settings, instances, game files, mods, backups, profile metadata, offline profiles, and eligible authentication cache data are stored on the user's Windows device in `%APPDATA%\ChromaClient`. Data from an old `%APPDATA%\MineLock` folder is moved or copied there on first start, unless `%APPDATA%\ChromaClient` already contains data. If the move or copy fails or the old folder is locked, the launcher asks to Quit or Start fresh. The old data is never deleted automatically.
+- Launcher settings, instances, game files, mods, backups, profile metadata, offline profiles, and eligible authentication cache data are stored on the user's Windows device in `%APPDATA%\ChromaClient`.
 - If Electron `safeStorage` encryption is available and secure, Chroma Client can persist the MSAL account cache (without access or ID tokens) and its account mapping in encrypted local storage. Otherwise, authentication is session-only rather than being persisted in plaintext.
 - Authentication and content requests go directly to the relevant external provider. Those providers receive the network, request, and account information needed to serve the request under their own policies.
-- Current beta executables are not Authenticode-signed and may trigger Microsoft Defender SmartScreen. Signing status can change for future builds.
+- Builds are currently not Authenticode-signed, so Microsoft Defender SmartScreen may show a warning.
 
 Never send anyone a password, access token, refresh token, device code, or full unredacted log.
 
 ## Downloads
 
-Current local beta executables are not offered from this documentation repository.
-
-If a public build is published, the canonical location will be the [Chroma Client Releases page](https://github.com/plisanko/minelock/releases). Each release will state its signing status and provide SHA-256 hashes so users can verify downloaded files. A future build is not guaranteed to remain unsigned.
+Chroma Client builds are published on the [Chroma Client Releases page](https://github.com/plisanko/Chroma/releases). Download builds only from the official GitHub releases page.
 
 Version `0.9.0-beta.2` is built for 64-bit Windows as:
 
@@ -72,9 +62,7 @@ Do not trust Chroma Client binaries from an unofficial download location.
 
 ## Project and repository status
 
-This repository contains public information and policy documents for Chroma Client. It does not contain the application source. The repository keeps its former name, `minelock`.
-
-Chroma Client is not currently represented as open source; source publication is undecided. The presence of this public documentation repository grants no license to application source. Terms and notices accompanying an app release govern that binary.
+This repository contains public information and policy documents for Chroma Client. The application source code is not published here, and this documentation grants no license to it. Terms and notices accompanying an app release govern that binary.
 
 ## Documentation
 

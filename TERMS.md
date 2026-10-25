@@ -6,7 +6,7 @@ Effective date: 2026-10-25
 
 ## 1. About Chroma Client
 
-Chroma Client (formerly MineLock) is an independent Windows desktop launcher for Minecraft: Java Edition. It is a non-commercial hobby project maintained by [@plisanko](https://github.com/plisanko) in Croatia and is currently in beta (version 0.9.0-beta.2).
+Chroma Client is an independent Windows desktop launcher for Minecraft: Java Edition. It is a non-commercial hobby project maintained by [@plisanko](https://github.com/plisanko) in Croatia (version 0.9.0-beta.2).
 
 Minecraft is a trademark of Mojang and Microsoft. Chroma Client is not affiliated with, endorsed by, or approved by them.
 
@@ -58,25 +58,23 @@ Users must not use Chroma Client or related information to:
 
 This section does not prohibit activity that applicable law expressly permits and does not allow these terms to restrict a mandatory legal right.
 
-## 7. Beta status, availability, and price
+## 7. Availability and price
 
-Chroma Client is beta software. Features may be incomplete, fail, change without notice, or be removed. Authentication and downloads depend on external services that may reject the app, change their interfaces, impose limits, or become unavailable.
+Features may change or be removed without notice. Authentication and downloads depend on external services, which may change their interfaces, impose limits, or become unavailable.
 
-The beta is currently provided without charge. That does not promise that Chroma Client, every feature, or future distribution will remain free forever. Any future price or purchase terms would need to be disclosed before a charge is made. Chroma Client currently has no in-app purchases.
+Chroma Client is currently provided free of charge and has no in-app purchases. That does not promise that Chroma Client, every feature, or future distribution will remain free. Any future price or purchase terms would be disclosed before a charge is made.
 
 There is no guarantee that a build, update, loader integration, support channel, or external service will remain available. Users should back up important instances, worlds, settings, and other local files. Deleting an instance in Chroma Client permanently deletes its folder.
 
 ## 8. Security and downloads
 
-Current beta executables are not Authenticode-signed, can trigger Microsoft Defender SmartScreen, and are not offered from this documentation repository. Future builds may be signed or unsigned.
-
-If a public build is released, the canonical location will be the [Chroma Client Releases page](https://github.com/plisanko/minelock/releases), with signing status and SHA-256 hashes stated for that release. Users assume the risk of files obtained from other locations and should verify the source and hash before running a download.
+Builds are currently not Authenticode-signed, so Microsoft Defender SmartScreen may show a warning. Chroma Client builds are published on the [Chroma Client Releases page](https://github.com/plisanko/Chroma/releases). Users assume the risk of files obtained from other locations and should verify the source before running a download.
 
 Users are responsible for device security and for evaluating mods, loaders, Java runtimes, and other third-party components they install or launch.
 
 ## 9. Project materials and source status
 
-This public repository contains project information and policies, not Chroma Client application source. It does not mean that Chroma Client is open source. Source publication is undecided, and this repository grants no license to application source.
+This public repository contains project information and policies, not Chroma Client application source. Application source code is not published here, and this repository grants no license to it.
 
 App release terms, included notices, and applicable third-party licenses govern binaries and bundled third-party components. No right is granted to Microsoft, Mojang, Minecraft, loader-project, mod-author, or other third-party materials beyond rights their owners provide.
 

@@ -6,7 +6,7 @@ Effective date: 2026-10-25
 
 ## 1. Scope and operator
 
-This policy explains how the Chroma Client (formerly MineLock) Windows desktop launcher, version 0.9.0-beta.2, handles information. It also covers information voluntarily sent to Chroma Client support. It covers the launcher only and does not replace the privacy policies of Microsoft, Mojang, Minecraft, GitHub, Modrinth, loader projects, or other external services.
+This policy explains how the Chroma Client Windows desktop launcher, version 0.9.0-beta.2, handles information. It also covers information voluntarily sent to Chroma Client support. It covers the launcher only and does not replace the privacy policies of Microsoft, Mojang, Minecraft, GitHub, Modrinth, loader projects, or other external services.
 
 Chroma Client is an independent, non-commercial hobby project operated and maintained by [@plisanko](https://github.com/plisanko) in Croatia. Privacy questions can be sent to [minelock@proton.me](mailto:minelock@proton.me).
 
@@ -84,7 +84,7 @@ If a user adds a server to the launcher's server list, Chroma Client connects di
 
 ### GitHub
 
-This documentation is hosted on GitHub. A future public Chroma Client release may also be provided through GitHub Releases. Visiting the repository or downloading a release causes GitHub to process information under the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+This documentation is hosted on GitHub, and Chroma Client releases are provided through GitHub Releases. Visiting the repository or downloading a release causes GitHub to process information under the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
 ## 5. Support communications
 
@@ -105,7 +105,7 @@ Local launcher and game data remains on the user's device until the user, the ga
 - Closing the app clears the in-memory session, including the short-lived Minecraft token.
 - Uninstalling Chroma Client does not remove its app data. The installed and portable versions both use `%APPDATA%\ChromaClient`.
 - To remove all local Chroma Client data, close the app and delete `%APPDATA%\ChromaClient`. Back up any instances or files the user wants to keep first.
-- On first start, data from an earlier MineLock version in `%APPDATA%\MineLock` is moved (or, where a move is not possible, copied) to `%APPDATA%\ChromaClient`. Migration is skipped if `%APPDATA%\ChromaClient` already contains data. If the move or copy fails or the old folder is locked, Chroma Client asks the user to Quit or Start fresh. Chroma Client never deletes the old folder automatically. If a copy was made, or if migration failed, the old folder remains and can be deleted manually.
+- If a data folder from an earlier version exists (`%APPDATA%\MineLock`), the launcher moves or copies it to `%APPDATA%\ChromaClient` and never deletes it automatically; to remove old data, delete that folder yourself.
 
 Deleting local Chroma Client data does not delete information held by Microsoft, Minecraft, GitHub, Modrinth, loader providers, email providers, or other external services. Contact the relevant provider and follow its policy for that data.
 
@@ -113,7 +113,7 @@ Deleting local Chroma Client data does not delete information held by Microsoft,
 
 Chroma Client uses available Electron secure local storage for eligible persisted authentication cache data and otherwise keeps authentication session-only. It also limits the Minecraft access token to app memory for the active session. These measures reduce risk but cannot guarantee security.
 
-The device owner is responsible for operating-system security, malware protection, local account access, backups, and the security of installed mods. Current beta executables are not Authenticode-signed and may trigger Microsoft Defender SmartScreen. See the [Security Policy](SECURITY.md) for release verification and vulnerability reporting.
+The device owner is responsible for operating-system security, malware protection, local account access, backups, and the security of installed mods. Builds are currently not Authenticode-signed, so Microsoft Defender SmartScreen may show a warning. See the [Security Policy](SECURITY.md) for download guidance and vulnerability reporting.
 
 ## 8. Children
 
