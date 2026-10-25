@@ -23,7 +23,7 @@ Chroma Client may process and store the following information locally, in its El
 - Launcher preferences, configuration, and instance definitions.
 - Official Minecraft metadata, game files, assets, libraries, and Java runtimes downloaded for the user's instances.
 - Locally managed mods, resource packs, shaders, and other files for Vanilla, Fabric, Quilt, Forge, or NeoForge instances.
-- Instance backup archives created by the user or by launcher actions such as deleting an instance or updating mods.
+- Backups: world (saves) backup archives in `%APPDATA%\ChromaClient\backups`, created manually by the user or optionally before deleting an instance (a checkbox, ticked by default), and mod-update backups kept in a `.chroma-mods-backup` folder inside the instance folder.
 - Offline profiles: a username chosen by the user, a UUID derived from it, a creation time, and an optional skin image the user selects.
 - Minecraft profile metadata used by the launcher, including UUID, player name, skin, and cape metadata.
 - MSAL account linkage, account mapping, and authentication cache data, subject to the storage rules below.
@@ -80,7 +80,7 @@ When a user searches for or installs mods, resource packs, or shaders (including
 
 ### Minecraft servers
 
-If a user adds a server to the launcher's server list, Chroma Client connects directly to that address to read its public status. The server operator can see the connecting IP address. Minecraft and its mods make their own connections once a game is launched, under their own policies.
+If a user adds a server to the launcher's server list, Chroma Client connects directly to that address to read its public status. It also looks up the DNS SRV record `_minecraft._tcp.<host>` through the system DNS resolver. The server operator can see the connecting IP address. Minecraft and its mods make their own connections once a game is launched, under their own policies.
 
 ### GitHub
 
@@ -100,12 +100,12 @@ Local launcher and game data remains on the user's device until the user, the ga
 
 - Removing a Microsoft account from Chroma Client deletes Chroma Client's account mapping and clears its in-memory session. It does not sign the account out of Windows, and the encrypted MSAL cache file stays until the data folder is deleted.
 - Removing an offline profile deletes its record and its stored skin image.
-- Deleting an instance in Chroma Client permanently deletes that instance's folder; it is not moved to the Recycle Bin. Backup archives in the `backups` folder are separate files. Removing a mod moves it to the Windows Recycle Bin.
+- Deleting an instance in Chroma Client permanently deletes that instance's folder; it is not moved to the Recycle Bin. World backup archives in the `backups` folder are separate files, but mod-update backups in the instance's `.chroma-mods-backup` folder are deleted together with the instance. Removing a mod moves it to the Windows Recycle Bin.
 - Signing out or removing an account does not automatically delete instances, game files, mods, logs, or provider-side account data.
 - Closing the app clears the in-memory session, including the short-lived Minecraft token.
 - Uninstalling Chroma Client does not remove its app data. The installed and portable versions both use `%APPDATA%\ChromaClient`.
 - To remove all local Chroma Client data, close the app and delete `%APPDATA%\ChromaClient`. Back up any instances or files the user wants to keep first.
-- On first start, data from an earlier MineLock version in `%APPDATA%\MineLock` is moved (or, where a move is not possible, copied) to `%APPDATA%\ChromaClient`. Chroma Client never deletes the old folder automatically. If a copy was made, or if migration failed, the old folder remains and can be deleted manually.
+- On first start, data from an earlier MineLock version in `%APPDATA%\MineLock` is moved (or, where a move is not possible, copied) to `%APPDATA%\ChromaClient`. Migration is skipped if `%APPDATA%\ChromaClient` already contains data. If the move or copy fails or the old folder is locked, Chroma Client asks the user to Quit or Start fresh. Chroma Client never deletes the old folder automatically. If a copy was made, or if migration failed, the old folder remains and can be deleted manually.
 
 Deleting local Chroma Client data does not delete information held by Microsoft, Minecraft, GitHub, Modrinth, loader providers, email providers, or other external services. Contact the relevant provider and follow its policy for that data.
 

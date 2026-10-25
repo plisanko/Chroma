@@ -49,7 +49,7 @@ See [Privacy](PRIVACY.md) for local token-cache behavior and third-party data pr
 ## Data and security summary
 
 - Chroma Client has no developer telemetry, analytics, crash reporting, advertising, in-app purchases, automatic updater, or remote Chroma Client backend.
-- Launcher settings, instances, game files, mods, backups, profile metadata, offline profiles, and eligible authentication cache data are stored on the user's Windows device in `%APPDATA%\ChromaClient`. Data from an old `%APPDATA%\MineLock` folder is moved or copied there on first start; the old data is never deleted automatically.
+- Launcher settings, instances, game files, mods, backups, profile metadata, offline profiles, and eligible authentication cache data are stored on the user's Windows device in `%APPDATA%\ChromaClient`. Data from an old `%APPDATA%\MineLock` folder is moved or copied there on first start, unless `%APPDATA%\ChromaClient` already contains data. If the move or copy fails or the old folder is locked, the launcher asks to Quit or Start fresh. The old data is never deleted automatically.
 - If Electron `safeStorage` encryption is available and secure, Chroma Client can persist the MSAL account cache (without access or ID tokens) and its account mapping in encrypted local storage. Otherwise, authentication is session-only rather than being persisted in plaintext.
 - Authentication and content requests go directly to the relevant external provider. Those providers receive the network, request, and account information needed to serve the request under their own policies.
 - Current beta executables are not Authenticode-signed and may trigger Microsoft Defender SmartScreen. Signing status can change for future builds.
