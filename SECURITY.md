@@ -1,23 +1,25 @@
-# MineLock Security Policy
+# Chroma Client Security Policy
 
 > **NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.**
 
+Last updated: 2026-10-25
+
 ## Supported versions
 
-Security support is provided on a best-effort basis for the latest public MineLock beta only. Older builds, private development builds, and files from unofficial sources are not promised security updates.
+Security support is provided on a best-effort basis for the latest public Chroma Client (formerly MineLock) beta only. The current version is 0.9.0-beta.2. Older builds, private development builds, and files from unofficial sources are not promised security updates.
 
-No public beta executable is currently offered from this documentation repository. Current local beta executables are not Authenticode-signed.
+No public beta executable is currently offered from this documentation repository. Current beta executables are not Authenticode-signed. Chroma Client has no automatic updater; updates are installed manually.
 
 ## Reporting a vulnerability
 
-Report a suspected MineLock vulnerability privately by email:
+Report a suspected Chroma Client vulnerability privately by email:
 
 - To: [minelock@proton.me](mailto:minelock@proton.me)
-- Subject: `[MineLock Security]`
+- Subject: `[Chroma Client Security]`
 
 Include, where possible:
 
-- The MineLock version, edition, and whether it is installed or portable.
+- The Chroma Client version, whether it is the installer, portable, or unpacked build, and whether the data folder came from an older MineLock version.
 - Windows version and relevant environment details.
 - Clear reproduction steps and whether the issue reproduces consistently.
 - Expected behavior, actual behavior, and potential security impact.
@@ -31,29 +33,32 @@ Do not open a public GitHub issue containing an unpatched vulnerability, exploit
 
 Reports are reviewed on a best-effort basis. The maintainer may ask for clarification, attempt reproduction, prepare a fix, or determine that the issue belongs to Microsoft, Minecraft, a loader, a mod, Electron, or another provider.
 
-MineLock does not promise a response or resolution time. There is currently no bug bounty, paid reward, service-level agreement, or promised PGP reporting channel. Please allow a reasonable opportunity to investigate before public disclosure, but this request does not override applicable law.
+Chroma Client does not promise a response or resolution time. There is currently no bug bounty, paid reward, service-level agreement, or promised PGP reporting channel. Please allow a reasonable opportunity to investigate before public disclosure, but this request does not override applicable law.
 
-Account compromise, suspicious Microsoft sign-in activity, purchases, billing, and entitlement issues should also be reported directly to Microsoft or Minecraft Support. MineLock cannot recover or secure provider accounts.
+Account compromise, suspicious Microsoft sign-in activity, purchases, billing, and entitlement issues should also be reported directly to Microsoft or Minecraft Support. Chroma Client cannot recover or secure provider accounts.
 
 ## Security architecture summary
 
-- Microsoft sign-in uses MSAL OAuth 2.0 device authorization with the `consumers` authority and scopes `XboxLive.signin` and `offline_access`.
-- MineLock never accepts a Microsoft password, has no client secret, and has no developer-operated authentication backend or proxy.
-- Authentication and content requests are sent directly to Microsoft, Xbox Live, XSTS, Minecraft, Mojang, and relevant content providers.
+- Microsoft sign-in uses MSAL with the Windows Account Manager (WAM) native broker, the `consumers` authority, and scopes `XboxLive.signin`, `openid`, `profile`, and `offline_access`. Windows displays the sign-in dialog.
+- Chroma Client never receives a Microsoft password, has no client secret, and has no developer-operated authentication backend or proxy.
+- Authentication and content requests are sent directly to Microsoft, Xbox Live, XSTS, Minecraft, Mojang, and relevant content providers. Downloads use HTTPS only, from a fixed list of provider hosts, with redirects re-checked and file hashes verified where the provider supplies them.
 - The short-lived Minecraft access token is kept in memory for the active session.
-- If Electron `safeStorage` is available and secure, the MSAL cache and account mapping can persist encrypted on the local device.
+- If Electron `safeStorage` is available and secure, the MSAL account cache (stored without access or ID tokens) and account mapping can persist encrypted on the local device.
 - If secure storage is unavailable or insecure, authentication is session-only instead of being persisted in plaintext.
-- Signing out removes the selected account's MSAL cache record and mapping. Closing the app clears the in-memory session.
+- Removing an account from Chroma Client deletes its account mapping and clears its in-memory session; it does not sign the account out of Windows. Closing the app clears the in-memory session.
+- The interface runs under a restrictive Content Security Policy that blocks scripted network requests, denies browser permission requests, and does not open new windows.
+- Offline profiles are local only, involve no authentication, and are stored unencrypted.
+- Chroma Client contains no telemetry, crash reporting, or automatic updater.
 
-These controls reduce certain risks but do not guarantee that MineLock, the device, third-party services, mods, or downloaded content are secure.
+These controls reduce certain risks but do not guarantee that Chroma Client, the device, third-party services, mods, or downloaded content are secure.
 
 ## Download authenticity
 
-Current local beta executables are not Authenticode-signed and may trigger Microsoft Defender SmartScreen. This is a disclosure, not an instruction to ignore a warning. Users should stop if the file source or integrity cannot be verified. Future builds may be signed or unsigned, and each release should be checked separately.
+Current beta executables are not Authenticode-signed and may trigger Microsoft Defender SmartScreen. This is a disclosure, not an instruction to ignore a warning. Users should stop if the file source or integrity cannot be verified. Future builds may be signed or unsigned, and each release should be checked separately.
 
 If a public build is published:
 
-1. Obtain it only from the canonical [MineLock Releases page](https://github.com/plisanko/minelock/releases).
+1. Obtain it only from the canonical [Chroma Client Releases page](https://github.com/plisanko/minelock/releases).
 2. Read that release's stated Authenticode signing status.
 3. Calculate the downloaded file's SHA-256 hash with a trusted local tool.
 4. Compare the complete hash with the SHA-256 value published on the same release page before running the file.
@@ -63,10 +68,10 @@ A matching hash checks the file against the value published on the release page.
 ## User security guidance
 
 - Never send anyone a Microsoft or Minecraft password, token, device code, or full unredacted log.
-- Complete device authorization only on a genuine Microsoft-hosted page reached through a trusted flow.
+- Enter Microsoft credentials only in the genuine Windows account dialog opened by a trusted sign-in flow.
 - Review mods and other third-party files before installation and obtain them from sources the user trusts.
-- Keep Windows, MineLock, Java, Minecraft, loaders, and relevant dependencies updated.
-- Back up valuable worlds and instances before beta updates or major mod changes.
+- Keep Windows, Chroma Client, Java, Minecraft, loaders, and relevant dependencies updated.
+- Back up valuable worlds and instances before beta updates or major mod changes. Deleting an instance in Chroma Client is permanent.
 - Use [Microsoft Support](https://support.microsoft.com/contactus) or [Minecraft Help](https://help.minecraft.net/hc/en-us) for provider account or billing problems.
 
 For non-security questions, see [Contact](CONTACT.md). For local data handling, see the [Privacy Policy](PRIVACY.md).

@@ -1,21 +1,23 @@
-# Contact MineLock
+# Contact Chroma Client
 
 > **NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.**
 
-MineLock is an independent, non-commercial hobby project maintained by [@plisanko](https://github.com/plisanko) in Croatia.
+Last updated: 2026-10-25
+
+Chroma Client (formerly MineLock) is an independent, non-commercial hobby project maintained by [@plisanko](https://github.com/plisanko) in Croatia. This page covers the Windows launcher.
 
 ## Project contact
 
 - Maintainer: [@plisanko](https://github.com/plisanko)
 - Email: [minelock@proton.me](mailto:minelock@proton.me)
 
-Use this address for MineLock project questions, privacy requests, and support concerning MineLock behavior. Include the MineLock version and a short, clear description when relevant.
+Use this address for Chroma Client project questions, privacy requests, and support concerning Chroma Client behavior. Include the Chroma Client version and a short, clear description when relevant.
 
 Support is provided on a best-effort basis. No response or resolution time is promised.
 
 ## Security reports
 
-Send suspected vulnerabilities privately to [minelock@proton.me](mailto:minelock@proton.me) with the subject `[MineLock Security]`. Read the [Security Policy](SECURITY.md) before sending evidence.
+Send suspected vulnerabilities privately to [minelock@proton.me](mailto:minelock@proton.me) with the subject `[Chroma Client Security]`. Read the [Security Policy](SECURITY.md) before sending evidence.
 
 Do not put secrets or unpatched vulnerability details in a public issue.
 
@@ -32,12 +34,12 @@ When sending a diagnostic excerpt, include only the relevant section and redact 
 
 ## Microsoft and Minecraft support
 
-MineLock cannot access, recover, bill, refund, unlock, or change Microsoft or Minecraft accounts. Contact the provider directly for:
+Chroma Client cannot access, recover, bill, refund, unlock, or change Microsoft or Minecraft accounts. Contact the provider directly for:
 
 - Account recovery, password resets, suspicious sign-ins, or account enforcement: [Microsoft Support](https://support.microsoft.com/contactus)
 - Minecraft purchases, billing, entitlement, migration, or official game support: [Minecraft Help](https://help.minecraft.net/hc/en-us)
 
-Provider response times and decisions are outside MineLock's control.
+Provider response times and decisions are outside Chroma Client's control.
 
 ## Policies
 
@@ -45,4 +47,4 @@ Provider response times and decisions are outside MineLock's control.
 - [Terms of Use](TERMS.md)
 - [Security Policy](SECURITY.md)
 
-For general public project information, return to the [MineLock README](README.md).
+For general public project information, return to the [Chroma Client README](README.md).
